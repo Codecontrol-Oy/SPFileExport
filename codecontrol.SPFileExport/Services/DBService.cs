@@ -84,7 +84,6 @@ namespace codecontrol.SPFileExport.Services
                         long startIndex = 0;
                         long retval = 0;
                         byte[] outByte = new byte[bufferSize];
-                        Console.WriteLine($"Fetching file from database...");
 
                         using (var writer = new BinaryWriter(fs))
                         {
