@@ -5,6 +5,8 @@
 
 Note: Tool only exports the latest version of every file
 
+Tool fetches file metadatas from **AllDocs** Table, and joins the data with the latest version of the file from **AllDocStreams** -table
+
 Exports files inside content db to the solution directory:
 
 ```
