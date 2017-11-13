@@ -34,6 +34,8 @@ for Linux:
   
 if the above links are offering newer than 1.1, visit https://github.com/dotnet/core/blob/master/release-notes/download-archive.md
 
+
+
 ## Program installation
 
 1. Clone this project
