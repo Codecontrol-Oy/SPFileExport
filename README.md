@@ -40,7 +40,7 @@ if the above links are offering newer than 1.1, visit https://github.com/dotnet/
 
 1. Clone this project
 ```
-https://github.com/Codecontrol-Oy/SPFileExport
+git clone https://github.com/Codecontrol-Oy/SPFileExport
 ```
 2. inside folder main folder, run the following commands:
 ```
