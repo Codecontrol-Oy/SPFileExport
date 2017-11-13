@@ -9,7 +9,7 @@ namespace codecontrol.SPFileExport.Services
     public class DBService
     {
         string DBConnectionString = "";
-        string ExportQuery = "Select TOP 10 a.Content, h.Id, h.DirName, h.LeafName, h.Extension, h.Size From (Select Id, Max(InternalVersion) As Latest_Version From AllDocStreams Group By Id) L,AllDocStreams A,AllDocs h Where A.Id = L.Id And A.InternalVersion = L.Latest_Version And H.Id = A.Id";
+        string ExportQuery = "Select a.Content, h.Id, h.DirName, h.LeafName, h.Extension, h.Size From (Select Id, Max(InternalVersion) As Latest_Version From AllDocStreams Group By Id) L,AllDocStreams A,AllDocs h Where A.Id = L.Id And A.InternalVersion = L.Latest_Version And H.Id = A.Id";
         SqlConnection connection;
         int FileCount;
 
