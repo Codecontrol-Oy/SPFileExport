@@ -1,13 +1,13 @@
-﻿# SharePoint ContentDB file exporter
+﻿# SharePoint ContentDB document exporter
 
-* Tool for extracting files updated through SharePoint
+* Tool for extracting documents added and updated through SharePoint
 * Tested with SP 2010
 
-Note: Tool only exports the latest version of every file
+Note: Tool only exports the latest version of every document
 
-Tool fetches file metadatas from **AllDocs** Table, and joins the data with the latest version of the file from **AllDocStreams** -table
+Tool fetches document metadatas from **AllDocs** Table, and joins the data with the latest version of the document from **AllDocStreams** -table
 
-Exports files inside content db to the solution directory:
+Exports documents inside contentdb to the solution directory:
 
 ```
 /files/folder/filename
@@ -16,4 +16,4 @@ Exports files inside content db to the solution directory:
 /files/folder3/filename4
 ```
 
-After all files have been exported, a filelist.txt is created to see all exported files.
+After all documents have been exported, a filelist.txt is created to see all exported files.
