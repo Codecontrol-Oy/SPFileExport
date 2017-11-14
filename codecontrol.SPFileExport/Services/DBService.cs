@@ -1,45 +1,40 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.IO;
+using codecontrol.SPFileExport.Interfaces;
 using codecontrol.SPFileExport.Models;
 
 namespace codecontrol.SPFileExport.Services
 {
 
-    public class DBService
+    public class DBService : IDBService
     {
         string DBConnectionString = "";
         string ExportQuery = "Select a.Content, h.Id, h.DirName, h.LeafName, h.Extension, h.Size From (Select Id, Max(InternalVersion) As Latest_Version From AllDocStreams Group By Id) L,AllDocStreams A,AllDocs h Where A.Id = L.Id And A.InternalVersion = L.Latest_Version And H.Id = A.Id";
         SqlConnection connection;
         int FileCount;
 
+        public DBService(){} 
+
         public DBService(string Server, string Database)
         {
             DBConnectionString += $"Server={Server};Database={Database};Integrated Security=SSPI;";
-            Initialize();
         }
 
         public DBService(string Server, string Database, string Username, string Password)
         {
             DBConnectionString += $"Server={Server};Database={Database};User Id={Username};Password={Password}";
-            Initialize();
         }
 
-        private void Initialize()
+
+        public virtual void Initialize()
         {
             connection = new SqlConnection(DBConnectionString);
             connection.Open();
-            try
-            {
-                FileCount = GetFileCount();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"An error occurred: {ex}");
-            }
+
         }
 
-        public int GetFileCount()
+        public virtual int GetFileCount()
         {
             var command = connection.CreateCommand();
             command.CommandText = $"SELECT COUNT(*) FROM ({ExportQuery}) as fileCount";
@@ -47,8 +42,28 @@ namespace codecontrol.SPFileExport.Services
             return (int)result;
         }
 
-        public SPFileCollection ExportFiles()
+        public SPFileCollection StartExport()
         {
+            try
+            {
+                Initialize();
+                FileCount = GetFileCount();
+                var results = ExportFiles();
+                results.WriteFileList();
+                return results;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex}");
+            }
+
+            return null;
+
+        }
+
+        public virtual SPFileCollection ExportFiles()
+        {
+            
             SPFileCollection results = new SPFileCollection();
             var command = connection.CreateCommand();
             command.CommandText = ExportQuery;
