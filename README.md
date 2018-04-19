@@ -20,7 +20,7 @@ After all documents have been exported, a filelist.txt is created to see all exp
 
 ## Dotnet installation
 
-This software is created with .net core 1.1
+This software is created with .net core 2.0
 
 - for macOS: https://www.microsoft.com/net/learn/get-started/macos
 - for Windows: https://www.microsoft.com/net/learn/get-started/windows\ 
@@ -32,7 +32,7 @@ This software is created with .net core 1.1
   * CentOS: https://www.microsoft.com/net/learn/get-started/linuxcentos
   * openSuse: https://www.microsoft.com/net/learn/get-started/linuxopensuse
   
-if the above links are offering newer than 1.1, visit https://github.com/dotnet/core/blob/master/release-notes/download-archive.md
+if the above links are offering newer than 2.0, visit https://github.com/dotnet/core/blob/master/release-notes/download-archive.md
 
 
 
