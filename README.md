@@ -22,9 +22,9 @@ After all documents have been exported, a filelist.txt is created to see all exp
 
 This software is created with .net core 1.1
 
-for macOS: https://www.microsoft.com/net/learn/get-started/macos\
-for Windows: https://www.microsoft.com/net/learn/get-started/windows\ 
-for Linux: 
+- for macOS: https://www.microsoft.com/net/learn/get-started/macos
+- for Windows: https://www.microsoft.com/net/learn/get-started/windows\ 
+- for Linux: 
   * Ubuntu: https://www.microsoft.com/net/learn/get-started/linuxubuntu
   * RHEL: https://www.microsoft.com/net/learn/get-started/linuxredhat
   * Debian: https://www.microsoft.com/net/learn/get-started/linuxdebian
